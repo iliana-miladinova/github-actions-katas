@@ -57,3 +57,14 @@ shadowJar {
 
 run.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+
+plugins {
+  id "org.sonarqube" version "7.0.1.6134"
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "iliana-miladinova_github-actions-katas"
+    property "sonar.organization", "ilianamiladinova"
+  }
+}
