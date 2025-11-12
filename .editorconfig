@@ -39,3 +39,9 @@ max_line_length = off
 [*.txt]
 indent_style = tab
 indent_size = 4
+
+[sonar-project.properties]
+indent_style = space
+insert_final_newline = true
+end_of_line = lf
+charset = utf-8
