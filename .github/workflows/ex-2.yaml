@@ -1,7 +1,14 @@
 name: Ex-2
 on: push
 jobs:
+   editorconfig:
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v4
+        - uses: editorconfig-checker/action-editorconfig-checker@main
+        - run: editorconfig-checker
   Build:
+    needs: [editorconfig]
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
