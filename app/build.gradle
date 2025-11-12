@@ -2,6 +2,7 @@ plugins {
     id "net.ltgt.apt-eclipse" version "0.21"
     id "com.github.johnrengelman.shadow" version "5.0.0"
     id "application"
+    id "org.sonarqube" version "7.0.1.6134"
 }
 
 
@@ -58,9 +59,6 @@ shadowJar {
 run.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
 
-plugins {
-  id "org.sonarqube" version "7.0.1.6134"
-}
 
 sonar {
   properties {
