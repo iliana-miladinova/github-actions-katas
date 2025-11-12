@@ -2,11 +2,21 @@ name: Ex-2
 on: push
 jobs:
   editorconfig:
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
         - uses: editorconfig-checker/action-editorconfig-checker@main
         - run: editorconfig-checker
+  markdown-cli:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - run: |
+            npm i -g cli-markdown
+          name: install markdown-cli
+          
+        - run: md **/*.md
+          name: run markdown-cli
   Build:
     needs: [editorconfig]
     runs-on: ubuntu-latest
